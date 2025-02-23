@@ -1,0 +1,16 @@
+// Copied from: https://dashboard.internetcomputer.org/canister/w36hm-eqaaa-aaaal-qr76a-cai
+type role = variant { user; system };
+
+type chat_message = record {
+    role : role;
+    content : text;
+};
+
+type chat_request = record {
+    model : text;
+    messages : vec chat_message;
+};
+
+service : {
+    v0_chat : (chat_request) -> (text);
+};
